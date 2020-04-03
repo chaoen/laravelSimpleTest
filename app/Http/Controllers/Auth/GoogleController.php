@@ -56,8 +56,7 @@ class GoogleController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = $this->authService->loginOrRegister();
-        Auth::login($user);
+        $this->authService->loginOrRegister();
         return redirect($this->redirectTo);
     }
 }

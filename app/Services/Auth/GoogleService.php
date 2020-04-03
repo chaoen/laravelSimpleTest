@@ -5,6 +5,7 @@ namespace App\Services\Auth;
 use Socialite;
 use App\Models\GoogleUsers;
 use App\User;
+use Auth;
 
 class GoogleService
 {
@@ -23,6 +24,7 @@ class GoogleService
 			'google_id' => $userInfo['id']
 		]);
 
-		return $googleUser->user;
+		Auth::login($googleUser->user);
+		return;
 	}
 }
